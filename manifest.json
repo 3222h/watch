@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Shorts Auto Scroll & Special Video",
+  "version": "1.0",
+  "permissions": [
+    "tabs",
+    "storage",
+    "scripting",
+    "activeTab",
+    "alarms"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["link.txt"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
